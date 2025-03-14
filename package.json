@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "cypress.config.js",
   "scripts": {
-    "cypress:headless": "npx cypress run --browser chrome",
     "cypress:web": "npx cypress open",
     "cypress:headless:chrome": "npx cypress run --browser chrome",
-    "cypress:headless:firefox": "npx cypress run --browser firefox"
+    "cypress:headless:electron": "npx cypress run --browser electron",
+    "cypress:headless:edge": "npx cypress run --browser edge"
+
   },
   "keywords": [],
   "author": "Lucas Costa",

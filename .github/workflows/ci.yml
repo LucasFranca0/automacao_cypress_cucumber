@@ -31,7 +31,7 @@ jobs:
       - name: Run Cypress tests on Chrome
         run: npx cypress run --browser chrome
 
-  cypress-run-firefox:
+  cypress-run-electron:
     runs-on: ubuntu-latest
 
     steps:
@@ -50,5 +50,28 @@ jobs:
       - name: Verify Cypress cache
         run: npx cypress cache list
 
-      - name: Run Cypress tests on Firefox
-        run: npx cypress run --browser firefox
+      - name: Run Cypress tests on Electron
+        run: npx cypress run --browser electron
+
+  cypress-run-edge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Cypress cache
+        run: npx cypress cache list
+
+      - name: Run Cypress tests on Edge
+        run: npx cypress run --browser edge
+

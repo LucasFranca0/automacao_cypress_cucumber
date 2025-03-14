@@ -13,8 +13,6 @@ class LoginPage {
             cy.getByData('username').type(username);
             cy.getByData('password').type(password);
         }
-
-
     }
 
     verifyLoggedIn() {
