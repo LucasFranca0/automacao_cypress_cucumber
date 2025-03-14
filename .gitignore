@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Environment variables
+.env
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/

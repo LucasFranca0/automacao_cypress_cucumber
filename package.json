@@ -1,0 +1,19 @@
+{
+  "name": "cypress_project",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cypress:headless": "npx cypress run --browser chrome",
+    "cypress:web": "npx cypress open"
+  },
+  "keywords": [],
+  "author": "Lucas Costa",
+  "license": "ISC",
+  "description": "Projeto para testar automação de testes com Cypress",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^13.17.0",
+    "esbuild": "^0.19.11"
+  }
+}
