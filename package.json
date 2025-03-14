@@ -4,7 +4,9 @@
   "main": "cypress.config.js",
   "scripts": {
     "cypress:headless": "npx cypress run --browser chrome",
-    "cypress:web": "npx cypress open"
+    "cypress:web": "npx cypress open",
+    "cypress:headless:chrome": "npx cypress run --browser chrome",
+    "cypress:headless:firefox": "npx cypress run --browser firefox",
   },
   "keywords": [],
   "author": "Lucas Costa",
