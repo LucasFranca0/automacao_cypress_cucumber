@@ -2,6 +2,12 @@
 
 Projeto para testar automação de testes com Cypress utilizando Cucumber para descrever as features.
 
+[Cypress Changelog:](https://docs.cypress.io/app/references/changelog) Cypress 14.1.0, necessário para que os testes no Firefox funcione.
+
+Features:
+
+Firefox versions 135 and above are now automated with WebDriver BiDi instead of Chrome Devtools Protocol. Addresses #30220.
+
 ## 📋 Descrição
 
 Este projeto utiliza Cypress para automação de testes end-to-end. Ele inclui testes para verificar a funcionalidade de login e navegação em uma aplicação web.
@@ -378,4 +384,3 @@ jobs:
            - name: Run Cypress tests on Chrome
              run: npx cypress run --browser chrome
      ```
-```
