@@ -1,6 +1,6 @@
 import {Given, When, Then, And} from "@badeball/cypress-cucumber-preprocessor";
-import LoginPage from "../pageObjects/LoginPage";
-import ProductsPage from "../pageObjects/ProductsPage";
+import LoginPage from "../../support/pageObjects/LoginPage";
+import ProductsPage from "../../support/pageObjects/ProductsPage";
 
 const loginPage = new LoginPage();
 const productsPage = new ProductsPage();
