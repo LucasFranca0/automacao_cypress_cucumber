@@ -1,16 +1,12 @@
 import {Given, When, Then, And} from "@badeball/cypress-cucumber-preprocessor";
-import LoginPage from "../../support/pageObjects/LoginPage";
 import ProductsPage from "../../support/pageObjects/ProductsPage";
 
-const loginPage = new LoginPage();
 const productsPage = new ProductsPage();
 
 Given("I visit the products page", () => {
     cy.fixture('users.json').then((users) => {
         const validUser = users.validUsers[0];
-        console.log(validUser);
-        loginPage.visitLoginPage();
-        loginPage.fillLoginForm(validUser.username, validUser.password);
+        cy.login(validUser.username, validUser.password);
         cy.getByData('login-button').click();
     });
 });
