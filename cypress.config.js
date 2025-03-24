@@ -5,6 +5,7 @@ const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esb
 module.exports = {
     projectId: process.env.CYPRESS_PROJECT_ID,
     e2e: {
+        specPattern: '**/*.feature',
         setupNodeEvents(on, config) {
             addCucumberPreprocessorPlugin(on, config);
             on('file:preprocessor', createBundler({
@@ -12,7 +13,6 @@ module.exports = {
             }));
             return config;
         },
-        specPattern: 'cypress/e2e/**/*.feature',
         chromeWebSecurity: false // Os testes estavam falhando por causa do CORS, ficava esperando a resposta do servidor
     }
 };

@@ -15,12 +15,12 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, electron, edge, firefox]
-        feature: [cart/cart.feature, product/product.feature, login/login.feature]
+        feature: [cart/cart.feature, products/products.feature, login/login.feature]
         include:
           - machine: 1
             feature: cart/cart.feature
           - machine: 2
-            feature: product/product.feature
+            feature: products/products.feature
           - machine: 3
             feature: login/login.feature
 
