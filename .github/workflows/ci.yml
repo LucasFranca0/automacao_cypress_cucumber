@@ -15,6 +15,7 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, electron, edge, firefox]
+        feature: [cart/cart.feature, product/product.feature, login/login.feature]
         machine: [1, 2, 3]
 
     steps:
