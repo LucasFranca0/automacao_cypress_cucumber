@@ -2,6 +2,8 @@
 
 Projeto para testar automação de testes com Cypress utilizando Cucumber para descrever as features.
 
+[![Cypress CI](https://github.com/LucasFranca0/automacao_cypress_cucumber/actions/workflows/ci.yml/badge.svg)](https://github.com/LucasFranca0/automacao_cypress_cucumber/actions/workflows/ci.yml)
+
 [Cypress Changelog:](https://docs.cypress.io/app/references/changelog) Cypress 14.1.0, necessário para que os testes no Firefox funcione.
 
 Features:
