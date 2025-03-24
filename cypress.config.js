@@ -3,6 +3,7 @@ const {addCucumberPreprocessorPlugin} = require('@badeball/cypress-cucumber-prep
 const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild').createEsbuildPlugin;
 
 module.exports = {
+    projectId: process.env.CYPRESS_PROJECT_ID,
     e2e: {
         setupNodeEvents(on, config) {
             addCucumberPreprocessorPlugin(on, config);
