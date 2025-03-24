@@ -40,9 +40,6 @@ jobs:
       - name: Verify Cypress cache
         run: npx cypress cache list
 
-      - name: Run Cypress tests on ${{ matrix.browser }}
-        run: npx cypress run
-
       - name: Run Cypress tests for ${{ matrix.feature }} on machine ${{ matrix.machine }}
         run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress/e2e/${{ matrix.feature }}" --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
         env:
