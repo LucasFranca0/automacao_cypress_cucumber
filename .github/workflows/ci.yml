@@ -43,8 +43,8 @@ jobs:
       - name: Run Cypress tests on ${{ matrix.browser }}
         run: npx cypress run --browser ${{ matrix.browser }}
 
-      - name: Run Cypress tests
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+      - name: Run Cypress tests for ${{ matrix.feature }} on machine ${{ matrix.machine }}
+        run: npx cypress run --spec "cypress/e2e/${{ matrix.feature }}" --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
