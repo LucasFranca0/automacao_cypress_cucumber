@@ -1,0 +1,6 @@
+projectKey=automacao-cypress
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=automacao-cypress
+ceTaskId=9acd2c20-29f1-41ab-ab7b-965c07978a12
+ceTaskUrl=http://localhost:9000/api/ce/task?id=9acd2c20-29f1-41ab-ab7b-965c07978a12
