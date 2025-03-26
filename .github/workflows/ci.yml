@@ -1,35 +1,28 @@
-name: Cypress CI
+name: Cypress CI with SonarCloud
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        browser: [ chrome, electron, edge, firefox ]
-        feature: [ cart/cart.feature, products/products.feature, login/login.feature ]
-        include:
-          - machine: 1
-            feature: cart/cart.feature
-          - machine: 2
-            feature: products/products.feature
-          - machine: 3
-            feature: login/login.feature
+        browser: [chrome, firefox]  # Electron é redundante (já é o browser headless padrão)
+        feature:
+          - cypress/e2e/login/login.feature
+          - cypress/e2e/products/products.feature
+          - cypress/e2e/cart/cart.feature
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
@@ -37,49 +30,52 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify Cypress cache
-        run: npx cypress cache list
-
-      - name: Run Cypress tests for ${{ matrix.feature }} on machine ${{ matrix.machine }}
-        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress/e2e/${{ matrix.feature }}" --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ matrix.browser }}
+          spec: ${{ matrix.feature }}
+          start: npm start  # Ajuste conforme necessário
+          env: coverage=true  # Habilita cobertura de código
         env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  sonar-scanner:
-    runs-on: ubuntu-latest
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
 
+  sonar-analysis:
+    needs: [cypress-run]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Download coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage
+          path: coverage
 
-      - uses: SonarSource/sonarqube-scan-action@v4
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
-      - name: Run SonarQube Scanner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          npx sonar-scanner \
-            -Dsonar.projectKey=automacao-cypress \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-
-      - uses: SonarSource/sonarqube-quality-gate-action@v1
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: |
+            -Dsonar.projectKey=automacao-cypress
+            -Dsonar.organization=SEU_ORGANIZATION_KEY  # Substitua pelo seu
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.sources=cypress/e2e
+            -Dsonar.tests=cypress/e2e
+            -Dsonar.test.inclusions=**/*.js

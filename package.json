@@ -8,6 +8,7 @@
     "cypress:headless:electron": "npx cypress run --browser electron",
     "cypress:headless:edge": "npx cypress run --browser edge",
     "cypress:headless:firefox": "npx cypress run --browser edge",
+    "sonar:start": "C:/sonarqube/bin/windows-x86-64/StartSonar.bat",
     "sonar": "sonar-scanner"
   },
   "keywords": [],
