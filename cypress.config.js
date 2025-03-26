@@ -6,7 +6,7 @@ module.exports = {
     projectId: process.env.CYPRESS_PROJECT_ID,
     e2e: {
         baseUrl: 'https://www.saucedemo.com',
-        specPattern: '**/*.feature',
+        chromeWebSecurity: false,
         setupNodeEvents(on, config) {
             require('@cypress/code-coverage/task')(on, config);
             addCucumberPreprocessorPlugin(on, config);
@@ -17,6 +17,13 @@ module.exports = {
         },
         viewportWidth: 1280,
         viewportHeight: 720,
-        chromeWebSecurity: false // Os testes estavam falhando por causa do CORS, ficava esperando a resposta do servidor
+        specPattern: '**/*.feature',
+        supportFile: 'cypress/support/e2e.js',
+        experimentalRunAllSpecs: true,
+        env: {
+            codeCoverage: {
+                url: '/__coverage__',
+            }
+        }
     }
 };

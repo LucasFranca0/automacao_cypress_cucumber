@@ -1,0 +1,14 @@
+{
+  "extends": "@istanbuljs/nyc-config-babel",
+  "all": true,
+  "include": [
+    "cypress/**/*.js",
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "**/*.spec.js",
+    "**/*.cy.js",
+    "coverage/**",
+    ".nyc_output/**"
+  ]
+}

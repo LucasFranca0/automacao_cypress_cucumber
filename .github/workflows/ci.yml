@@ -2,16 +2,16 @@ name: Cypress CI with SonarCloud
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, firefox]  # Electron é redundante (já é o browser headless padrão)
+        browser: [ chrome, firefox ]  # Electron é redundante (já é o browser headless padrão)
         feature:
           - cypress/e2e/login/login.feature
           - cypress/e2e/products/products.feature
@@ -36,17 +36,20 @@ jobs:
           browser: ${{ matrix.browser }}
           spec: ${{ matrix.feature }}
           env: coverage=true
+          config-file: cypress.config.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage
-          path: coverage
+          name: coverage-${{ matrix.browser }}
+          path: |
+            coverage/lcov.info
+            coverage/coverage-final.json
 
   sonar-analysis:
-    needs: [cypress-run]
+    needs: [ cypress-run ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -62,8 +65,9 @@ jobs:
       - name: Download coverage
         uses: actions/download-artifact@v4
         with:
-          name: coverage
-          path: coverage
+          path: coverage-reports
+          pattern: coverage-*
+          merge-multiple: true
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1742956620575" clover="3.2.0">
+  <project timestamp="1742956620575" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="8" files="16" classes="16"/>
+    <package name="Automacao Cypress">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="cypress.config.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress.config.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.coverage.lcov-report">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="block-navigation.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/coverage/lcov-report/block-navigation.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="prettify.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/coverage/lcov-report/prettify.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="sorter.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/coverage/lcov-report/sorter.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.e2e.cart">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="cart.feature" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/cart/cart.feature">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="cart.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/cart/cart.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.e2e.login">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="login.feature" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/login/login.feature">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="login.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/login/login.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.e2e.products">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="products.feature" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/products/products.feature">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="products.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/e2e/products/products.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.support">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="commands.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/commands.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="e2e.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/e2e.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.support.pageObjects">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="LoginPage.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/pageObjects/LoginPage.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="ProductsPage.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/pageObjects/ProductsPage.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="cartPage.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/pageObjects/cartPage.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Automacao Cypress.cypress.support.step_definitions">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="commonSteps.js" path="C:/Users/Lucas/Workspace/Programação/teste/Cypress/Automacao Cypress/cypress/support/step_definitions/commonSteps.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>
