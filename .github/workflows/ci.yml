@@ -35,8 +35,7 @@ jobs:
         with:
           browser: ${{ matrix.browser }}
           spec: ${{ matrix.feature }}
-          start: npm start  # Ajuste conforme necessário
-          env: coverage=true  # Habilita cobertura de código
+          env: coverage=true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 

@@ -8,6 +8,7 @@ module.exports = {
         baseUrl: 'https://www.saucedemo.com',
         specPattern: '**/*.feature',
         setupNodeEvents(on, config) {
+            require('@cypress/code-coverage/task')(on, config);
             addCucumberPreprocessorPlugin(on, config);
             on('file:preprocessor', createBundler({
                 plugins: [createEsbuildPlugin(config)],
